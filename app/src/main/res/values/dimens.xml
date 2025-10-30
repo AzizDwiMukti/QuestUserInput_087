@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="padding_small"></dimen>
+    <dimen name="padding_medium"></dimen>
+    <dimen name="divider_tipis"></dimen>
+</resources>
