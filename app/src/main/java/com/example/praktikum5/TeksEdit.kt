@@ -65,3 +65,23 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
             modifier = Modifier.width(250.dp),
             label = { Text("Nama Lengkap") },
             onValueChange = { textName = it }
+        )
+
+        Row {
+            gender.forEach { item ->
+                Row(
+                    modifier = Modifier.selectable(
+                        selected = textJK == item,
+                        onClick = { textJK = item }
+                    ),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(
+                        selected = textJK == item,
+                        onClick = { textJK = item }
+                    )
+                    Text(item)
+                }
+            }
+        }
+
