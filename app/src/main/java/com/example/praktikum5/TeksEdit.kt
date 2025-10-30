@@ -52,7 +52,85 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
 
     val gender: List<String> = listOf("Laki-laki", "Perempuan")
 
+
     Column(
         modifier = Modifier.padding(top = 50.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        OutlinedTextField(
+            value = textName,
+            singleLine = true,
+            shape = MaterialTheme.shapes.large,
+            modifier = Modifier.width(250.dp),
+            label = { Text("Nama Lengkap") },
+            onValueChange = { textName = it }
+        )
+
+        Row {
+            gender.forEach { item ->
+                Row(
+                    modifier = Modifier.selectable(
+                        selected = textJK == item,
+                        onClick = { textJK = item }
+                    ),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(
+                        selected = textJK == item,
+                        onClick = { textJK = item }
+                    )
+                    Text(item)
+                }
+            }
+        }
+
+        OutlinedTextField(
+            value = textAlamat,
+            singleLine = true,
+            modifier = Modifier.width(250.dp),
+            label = { Text("Alamat Lengkap") },
+            onValueChange = { textAlamat = it }
+        )
+
+        Divider(
+            modifier = Modifier.padding(vertical = 16.dp),
+            thickness = 1.dp,
+            color = Color.DarkGray
+        )
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            enabled = textAlamat.isNotEmpty(),
+            onClick = {
+                nama = textName
+                jenis = textJK
+                alamat = textAlamat
+            }
+        ) {
+            Text("Submit")
+        }
+
+        Divider(
+            modifier = Modifier.padding(vertical = 16.dp),
+            thickness = 1.dp,
+            color = Color.DarkGray
+        )
+
+        ElevatedCard(
+            elevation = CardDefaults.cardElevation(10.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.Black),
+            modifier = Modifier
+                .height(100.dp)
+                .width(300.dp)
+        ) {
+            Column(
+                modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp)
+            ) {
+                Text(text = "Nama   : $nama", color = Color.White)
+                Text(text = "Gender : $jenis", color = Color.White)
+                Text(text = "Alamat : $alamat", color = Color.White)
+            }
+        }
+    }
+}
