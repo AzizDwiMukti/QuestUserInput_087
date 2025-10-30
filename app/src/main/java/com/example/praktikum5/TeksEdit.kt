@@ -110,4 +110,9 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
         ) {
             Text("Submit")
         }
+        Divider(
+            modifier = Modifier.padding(vertical = 16.dp),
+            thickness = 1.dp,
+            color = Color.DarkGray
+        )
 
