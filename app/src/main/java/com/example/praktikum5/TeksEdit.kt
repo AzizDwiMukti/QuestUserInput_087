@@ -93,3 +93,9 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
             onValueChange = { textAlamat = it }
         )
 
+        Divider(
+            modifier = Modifier.padding(vertical = 16.dp),
+            thickness = 1.dp,
+            color = Color.DarkGray
+        )
+
