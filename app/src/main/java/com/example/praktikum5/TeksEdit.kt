@@ -78,4 +78,27 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = { Text("Isian nama lengkap") }
                 )
+                // JENIS KELAMIN
+                Text(
+                    text = "JENIS KELAMIN",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+                genderList.forEach { item ->
+                    Row(
+                        modifier = Modifier
+                            .selectable(
+                                selected = jenisKelamin == item,
+                                onClick = { jenisKelamin = item }
+                            )
+                            .padding(start = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = jenisKelamin == item,
+                            onClick = { jenisKelamin = item }
+                        )
+                        Text(item)
+                    }
+                }
 
