@@ -140,6 +140,19 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                     placeholder = { Text("Alamat") }
                 )
 
-
+                // SUBMIT BUTTON
+                Button(
+                    onClick = { /* bisa tampilkan dialog nanti */ },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF8E24AA))
+                ) {
+                    Text("Submit", color = Color.White)
+                }
+            }
+        }
+    }
+}
 
 
