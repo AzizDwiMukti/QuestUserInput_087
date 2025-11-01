@@ -102,3 +102,27 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                     }
                 }
 
+                // STATUS PERKAWINAN
+                Text(
+                    text = "STATUS PERKAWINAN",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+                statusList.forEach { item ->
+                    Row(
+                        modifier = Modifier
+                            .selectable(
+                                selected = status == item,
+                                onClick = { status = item }
+                            )
+                            .padding(start = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = status == item,
+                            onClick = { status = item }
+                        )
+                        Text(item)
+                    }
+                }
+
